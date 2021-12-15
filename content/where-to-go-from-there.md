@@ -1,5 +1,5 @@
 ---
-title: Getting started as a Nuxt.js Blogger. 📝
+title: Getting started as a Nuxt.js Blogger 9. 📝
 description: Nuxt.js provides lightning speed ways for you to 10x your content distribution.
 tags:
   - Nuxt.js
