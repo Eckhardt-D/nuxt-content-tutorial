@@ -6,16 +6,22 @@
         100x Your Nuxt.js skills <span class="emoji">🚀</span>
       </h2>
     </div>
-    <v-row class="posts-container mt-5">
+    <v-row v-if="!posts.length">
+      <v-col cols="12">
+        <p>No posts found, yet. <span class="emoji">😁</span></p>
+      </v-col>
+    </v-row>
+    <v-row v-else class="posts-container mt-5">
       <v-col cols="12">
         <div class="filter">
           <v-select
+            v-if="categories.length"
             v-model="category"
             style="width: 100px"
             outlined
             dense
             hide-details="auto"
-            :items="['all', 'code', 'lifestyle']"
+            :items="categories"
           />
         </div>
       </v-col>
@@ -41,7 +47,7 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-row class="post-pagination">
+    <v-row v-if="posts.length" class="post-pagination">
       <v-col class="text-right" cols="12">
         <v-btn :disabled="page === 1" @click="fetchPrevious">
           <v-icon small> mdi-arrow-left </v-icon>
@@ -66,7 +72,7 @@ export default {
 
     const fetchedPosts = await $content()
       .limit(limit)
-      .sortBy('updatedAt', 'desc')
+      .sortBy('createdAt', 'desc')
       .skip((limit - 1) * (page - 1))
       .fetch()
 
@@ -78,25 +84,58 @@ export default {
       limit,
       posts,
       nextPage,
+      categories: [],
     }
   },
+
   data: () => ({
     category: 'all',
   }),
 
+  fetch() {
+    this.$content()
+      .only(['category'])
+      .fetch()
+      .then((categories) => {
+        const payload = Array.from(new Set(categories.map((c) => c.category)))
+        this.categories = ['all', ...payload]
+      })
+  },
+
+  computed: {
+    searchQuery() {
+      return this.$store.state.search.query
+    },
+  },
+
+  watch: {
+    async searchQuery(newValue) {
+      await this.fetchPosts(newValue)
+    },
+    async category() {
+      await this.fetchPosts(this.searchQuery)
+    },
+  },
+
   methods: {
     async fetchNext() {
       this.page += 1
-      await this.fetchPosts()
+      await this.fetchPosts(this.searchQuery)
     },
     async fetchPrevious() {
       this.page -= 1
-      await this.fetchPosts()
+      await this.fetchPosts(this.searchQuery)
     },
-    async fetchPosts() {
-      const fetchedPosts = await this.$content()
-        .limit(this.limit)
-        .sortBy('updatedAt', 'desc')
+    async fetchPosts(query = '') {
+      let baseFetch = this.$content().limit(this.limit)
+
+      if (this.category !== 'all') {
+        baseFetch = baseFetch.where({ category: this.category })
+      }
+
+      const fetchedPosts = await baseFetch
+        .sortBy('createdAt', 'desc')
+        .search(query)
         .skip((this.limit - 1) * (this.page - 1))
         .fetch()
 

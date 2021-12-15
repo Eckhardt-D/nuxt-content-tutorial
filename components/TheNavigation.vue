@@ -21,12 +21,19 @@
 
 <script>
 export default {
-  data: () => ({
-    search: '',
-  }),
+  computed: {
+    search: {
+      get() {
+        return this.$store.state.search.query
+      },
+      set(value) {
+        this.$store.commit('search/SET_QUERY', value)
+      },
+    },
+  },
   methods: {
     clearSearch() {
-      this.search = ''
+      this.$store.commit('search/SET_QUERY', '')
     },
   },
 }

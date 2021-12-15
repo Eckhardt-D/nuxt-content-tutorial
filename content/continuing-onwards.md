@@ -4,8 +4,7 @@ description: Nuxt.js provides lightning speed ways for you to 10x your content d
 tags:
   - Nuxt.js
   - SEO
-category:
-  - coding
+category: somethingelse
 ---
 
 Ever wanted to become a famous blogger, but never knew how to get started? Well say hello to Nuxt.js Content. Get your content out there as fast as possible - for free!
