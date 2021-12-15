@@ -38,3 +38,7 @@ The options below will allow your code to deploy automatically to your firebase 
 - ? What script should be run before every deploy? (npm ci && npm run build) `npm run test && npm run generate`
 - ? Set up automatic deployment to your site's live channel when a PR is merged? (Y/n) `Y`
 - ? What is the name of the GitHub branch associated with your site's live channel? `main`
+
+### Note
+
+Check the `.github/workflows` directory after this command. Make sure only merge option exists and correct build script is listed.
