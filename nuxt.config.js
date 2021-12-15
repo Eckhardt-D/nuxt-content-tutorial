@@ -6,7 +6,6 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - Kaizen Blogs 📝',
     title: 'Kaizen Blogs 📝',
     htmlAttrs: {
       lang: 'en',
