@@ -1,5 +1,8 @@
 <template>
   <v-app-bar max-height="64">
+    <v-app-bar-nav-icon>
+      <img height="36" src="/kaizen.png" alt="Kaizen Codes Blog" />
+    </v-app-bar-nav-icon>
     <div
       v-if="$route.name === 'index'"
       class="search d-flex align-center justify-end ml-auto"
