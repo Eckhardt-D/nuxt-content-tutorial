@@ -1,7 +1,7 @@
 ---
-title: Getting started with Nuxt.js Content
+title: 12th Post, can't do this anymore...
 description: Take your blogging to a next level with this tutorial.
-category: coding
+category: life
 tags:
   - Nuxt.js
   - Javascript
@@ -19,6 +19,16 @@ optio magnam sequi aliquid ipsam consequatur recusandae possimus?
 <!--more-->
 
 # Getting started
+
+```js
+async function quit() {
+  await quitting()
+}
+```
+
+```bash
+npm install restart-project
+```
 
 Iusto sequi dolorum quam voluptate inventore?
 Veniam iure aliquid dolores asperiores aperiam magni veritatis a

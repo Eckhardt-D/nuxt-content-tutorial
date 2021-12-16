@@ -22,17 +22,22 @@
 <script>
 export default {
   name: 'PostPage',
-  async asyncData({ params: { slug }, $content, error }) {
+  layout: 'DefaultLayout',
+  async asyncData({ $content, error, params }) {
+    // TODO Paginate
     const [prev, next] = await $content()
       .only(['path'])
       .sortBy('createdAt', 'desc')
-      .surround(slug)
+      .surround(params.slug)
       .fetch()
 
-    const post = await $content(slug)
+    const post = await $content(params.slug)
       .fetch()
       .catch(() =>
-        error({ statusCode: 404, message: "Oops, that post doesn't exist." })
+        error({
+          statusCode: 404,
+          message: 'Oops, looks like that does not exist...',
+        })
       )
 
     return {
@@ -44,7 +49,6 @@ export default {
   head() {
     return {
       title: this.post.title,
-      description: this.post.description,
       meta: [
         {
           hid: 'description',

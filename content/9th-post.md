@@ -1,6 +1,6 @@
 ---
-title: Getting started with Nuxt.js Content
-description: Take your blogging to a next level with this tutorial.
+title: this post was created 9th.
+description: Take your blogging to a next level with this tutorial again.
 category: coding
 tags:
   - Nuxt.js

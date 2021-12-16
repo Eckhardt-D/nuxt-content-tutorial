@@ -1,7 +1,7 @@
 ---
-title: Getting started with Nuxt.js Content
+title: These Posts are boring...
 description: Take your blogging to a next level with this tutorial.
-category: coding
+category: life
 tags:
   - Nuxt.js
   - Javascript

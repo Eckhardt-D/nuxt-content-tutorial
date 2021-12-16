@@ -1,24 +1,39 @@
 ---
-title: Getting started as a Nuxt.js Blogger 6. 📝
-description: Nuxt.js provides lightning speed ways for you to 10x your content distribution.
+title: To create awesome sites..Again...
+description: Take your blogging to a next level with this tutorial.
+category: misc
 tags:
   - Nuxt.js
-  - SEO
-category: coding
+  - Javascript
+  - Tutorial
 ---
 
-Ever wanted to become a famous blogger, but never knew how to get started? Well say hello to Nuxt.js Content. Get your content out there as fast as possible - for free!
+Iusto sequi dolorum quam voluptate inventore?
+Veniam iure aliquid dolores asperiores aperiam magni veritatis a
+nesciunt, ratione non eaque explicabo reprehenderit dignissimos,
+perspiciatis, quas consectetur perferendis impedit inventore ipsam
+eveniet totam nam maxime soluta magnam. Totam ullam, eligendi aliquam
+quos unde odio provident harum laudantium perspiciatis iure adipisci
+optio magnam sequi aliquid ipsam consequatur recusandae possimus?
 
 <!--more-->
 
-# What do you need to get started?
+# Getting started
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore aliquam itaque odit? Quisquam blanditiis expedita nesciunt sapiente suscipit quas soluta aperiam aut illo pariatur culpa, assumenda non porro recusandae repellendus reiciendis omnis, similique nemo vero eveniet exercitationem accusantium! Expedita asperiores ab deleniti maxime perspiciatis dignissimos quaerat tempore necessitatibus debitis voluptas?
+Iusto sequi dolorum quam voluptate inventore?
+Veniam iure aliquid dolores asperiores aperiam magni veritatis a
+nesciunt, ratione non eaque explicabo reprehenderit dignissimos,
+perspiciatis, quas consectetur perferendis impedit inventore ipsam
+eveniet totam nam maxime soluta magnam. Totam ullam, eligendi aliquam
+quos unde odio provident harum laudantium perspiciatis iure adipisci
+optio magnam sequi aliquid ipsam consequatur recusandae possimus?
 
-# How to create smashing content
+## How to do it
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore aliquam itaque odit? Quisquam blanditiis expedita nesciunt sapiente suscipit quas soluta aperiam aut illo pariatur culpa, assumenda non porro recusandae repellendus reiciendis omnis, similique nemo vero eveniet exercitationem accusantium! Expedita asperiores ab deleniti maxime perspiciatis dignissimos quaerat tempore necessitatibus debitis voluptas?
-
-# How to market your content
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore aliquam itaque odit? Quisquam blanditiis expedita nesciunt sapiente suscipit quas soluta aperiam aut illo pariatur culpa, assumenda non porro recusandae repellendus reiciendis omnis, similique nemo vero eveniet exercitationem accusantium! Expedita asperiores ab deleniti maxime perspiciatis dignissimos quaerat tempore necessitatibus debitis voluptas?
+Iusto sequi dolorum quam voluptate inventore?
+Veniam iure aliquid dolores asperiores aperiam magni veritatis a
+nesciunt, ratione non eaque explicabo reprehenderit dignissimos,
+perspiciatis, quas consectetur perferendis impedit inventore ipsam
+eveniet totam nam maxime soluta magnam. Totam ullam, eligendi aliquam
+quos unde odio provident harum laudantium perspiciatis iure adipisci
+optio magnam sequi aliquid ipsam consequatur recusandae possimus?
