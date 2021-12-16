@@ -9,10 +9,9 @@
     >
       <v-text-field
         v-model="search"
-        type="search"
         hide-details="auto"
         dense
-        placeholder="Search a post"
+        placeholder="Search for a post"
         prepend-icon="mdi-magnify"
         outlined
         :append-icon="search.length ? 'mdi-close' : ''"
@@ -24,19 +23,20 @@
 
 <script>
 export default {
+  name: 'TheNavigation',
   computed: {
     search: {
       get() {
-        return this.$store.state.search.query
+        return this.$store.state.query
       },
       set(value) {
-        this.$store.commit('search/SET_QUERY', value)
+        this.$store.commit('SET_QUERY', value)
       },
     },
   },
   methods: {
     clearSearch() {
-      this.$store.commit('search/SET_QUERY', '')
+      this.$store.commit('SET_QUERY', '')
     },
   },
 }

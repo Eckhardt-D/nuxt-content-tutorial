@@ -1,12 +1,12 @@
 <template>
-  <v-container fluid>
+  <v-container style="max-width: 1000px" fluid>
     <section class="my-3">
       <v-btn text to="/">
         <v-icon small class="mr-2">mdi-arrow-left</v-icon>
         Go back
       </v-btn>
     </section>
-    <section class="post-content">
+    <section class="post-content mt-5">
       <h2 class="text-h2 mb-10">{{ post.title }}</h2>
       <nuxt-content :document="post" />
     </section>
@@ -22,17 +22,22 @@
 <script>
 export default {
   name: 'PostPage',
-  async asyncData({ params: { slug }, $content, error }) {
+  layout: 'DefaultLayout',
+  async asyncData({ $content, error, params }) {
+    // TODO Paginate
     const [prev, next] = await $content()
       .only(['path'])
       .sortBy('createdAt', 'desc')
-      .surround(slug)
+      .surround(params.slug)
       .fetch()
 
-    const post = await $content(slug)
+    const post = await $content(params.slug)
       .fetch()
       .catch(() =>
-        error({ statusCode: 404, message: "Oops, that post doesn't exist." })
+        error({
+          statusCode: 404,
+          message: 'Oops, looks like that does not exist...',
+        })
       )
 
     return {
@@ -44,7 +49,6 @@ export default {
   head() {
     return {
       title: this.post.title,
-      description: this.post.description,
       meta: [
         {
           hid: 'description',

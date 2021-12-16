@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <div class="intro my-5 mb-8">
+    <div class="intro mt-5 mb-8">
       <h1 class="text-h1">Kaizen Codes Blog</h1>
       <h2 class="mt-2">
         100x Your Nuxt.js skills <span class="emoji">🚀</span>
@@ -25,24 +25,27 @@
           />
         </div>
       </v-col>
+
       <v-col v-for="post in posts" :key="post.slug" cols="12" md="6">
         <v-card elevation="0">
-          <v-card-title> {{ post.title }}</v-card-title>
-          <v-card-subtitle>{{
-            new Intl.DateTimeFormat('en-US', {
-              year: 'numeric',
-              month: 'numeric',
-              day: 'numeric',
-              hour: 'numeric',
-              minute: 'numeric',
-              second: 'numeric',
-            }).format(new Date(post.updatedAt))
-          }}</v-card-subtitle>
+          <v-card-title> {{ post.title }} </v-card-title>
+          <v-card-subtitle>
+            {{
+              new Intl.DateTimeFormat('en-US', {
+                year: 'numeric',
+                month: 'numeric',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+              }).format(new Date(post.createdAt))
+            }}
+          </v-card-subtitle>
           <v-card-text>
             <nuxt-content :document="{ body: post.excerpt }" />
           </v-card-text>
           <v-card-actions>
-            <v-btn text :to="post.path">Read more</v-btn>
+            <v-btn text :to="post.path">Read More</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -65,10 +68,10 @@
 <script>
 export default {
   name: 'HomePage',
-  layout: 'HomeLayout',
+  layout: 'DefaultLayout',
   async asyncData({ $content }) {
-    const page = 1
     const limit = 5
+    const page = 1
 
     const fetchedPosts = await $content()
       .limit(limit)
@@ -84,12 +87,12 @@ export default {
       limit,
       posts,
       nextPage,
-      categories: [],
     }
   },
 
   data: () => ({
     category: 'all',
+    categories: [],
   }),
 
   fetch() {
@@ -104,15 +107,17 @@ export default {
 
   computed: {
     searchQuery() {
-      return this.$store.state.search.query
+      return this.$store.state.query
     },
   },
 
   watch: {
     async searchQuery(newValue) {
+      this.page = 1
       await this.fetchPosts(newValue)
     },
     async category() {
+      this.page = 1
       await this.fetchPosts(this.searchQuery)
     },
   },
@@ -120,11 +125,11 @@ export default {
   methods: {
     async fetchNext() {
       this.page += 1
-      await this.fetchPosts(this.searchQuery)
+      await this.fetchPosts()
     },
     async fetchPrevious() {
       this.page -= 1
-      await this.fetchPosts(this.searchQuery)
+      await this.fetchPosts()
     },
     async fetchPosts(query = '') {
       let baseFetch = this.$content().limit(this.limit)
@@ -146,9 +151,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.emoji {
-  font-weight: 100;
-}
-</style>
