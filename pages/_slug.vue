@@ -1,12 +1,12 @@
 <template>
-  <v-container fluid>
+  <v-container style="max-width: 1000px" fluid>
     <section class="my-3">
       <v-btn text to="/">
         <v-icon small class="mr-2">mdi-arrow-left</v-icon>
         Go back
       </v-btn>
     </section>
-    <section class="post-content">
+    <section class="post-content mt-5">
       <h2 class="text-h2 mb-10">{{ post.title }}</h2>
       <nuxt-content :document="post" />
     </section>
